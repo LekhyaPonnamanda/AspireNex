@@ -1,0 +1,493 @@
+/* A basic reset for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    border-radius:4px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #fff;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 1000;
+    position:sticky;
+    top:0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+#about {
+    position: relative;
+    padding: 50px 20px; /* Adjust padding as needed */
+    text-align: center; /* Center align text */
+    color: #fff; /* Text color */
+    margin-bottom: auto;
+    border-radius: 10px; /* Add border radius */
+}
+
+.about-background {
+    position: relative;
+    overflow: hidden; /* Hide overflow to contain the image */
+}
+
+.about-background img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: filter 0.3s ease; /* Transition for hover effect */
+}
+
+.about-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px; /* Adjust max-width as needed */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+    border-radius: 10px;
+    opacity: 0; /* Initially transparent */
+    transition: opacity 0.3s ease; /* Transition for opacity */
+}
+
+.about-content h1 {
+    font-size: 36px; /* Adjust heading font size */
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.about-content p {
+    font-size: 18px; /* Adjust paragraph font size */
+    line-height: 1.6;
+}
+
+.about-background:hover img {
+    filter: brightness(50%); /* Adjust brightness for text readability on hover */
+}
+
+.about-background:hover .about-content {
+    opacity: 1; /* Fade in content on hover */
+}
+
+
+
+/* Container for all projects */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+    border-radius: 10px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    justify-content: space-around; /* Distribute items evenly with space around them */
+    gap: 2px; /* Space between projects */
+    padding: 20px;
+}
+
+/* Styling for each project */
+.project {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* The door effect */
+.door {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    z-index: 2;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Project content hidden by default */
+.project-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    color: #fff;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hover effect */
+.project:hover .door {
+    transform: translateX(-100%);
+}
+
+.project:hover .project-content {
+    opacity: 1;
+}
+
+/* General styling */
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
+}
+
+.project h3 {
+    margin: 10px 0;
+}
+
+.project p {
+    margin: 10px 0;
+}
+
+.tech-used-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.tech-box {
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .projects-container {
+        justify-content: flex-start;
+    }
+    .project {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project {
+        width: 90%;
+    }
+}
+
+
+
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact form input,
+#contact form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contact form button {
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* General styling for the skills section */
+#skills {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.skill-box {
+    position: relative;
+    background-color: #000; 
+    color: #fff; 
+    padding: 15px; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    text-align: center; 
+    width: 100px; 
+    height: 120px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease; /* Smooth transitions */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Ensuring the text is always centered */
+.skill-box span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Placeholder for the hover image */
+.skill-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 0; /* Place behind the text */
+}
+
+.skill-box:hover::before {
+    opacity: 1; /* Show the image on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .skill-box {
+        width: 100px; /* Adjust width for smaller screens */
+        height: 100px; /* Adjust height for smaller screens */
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #2E4053 ; /* Blue background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.btn:hover {
+    background-color: #A2D9CE; /* Darker blue on hover */
+}
+
+
+
+#coding-profiles {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    transition: transform 0.3s ease;
+}
+
+.coding-profiles-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.coding-profile {
+    position: relative;
+    text-align: center;
+    width: 250px;
+    padding: 20px;
+    background-color: #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.coding-profile:hover {
+    transform: translateY(-5px);
+}
+
+.coding-profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.coding-profile h3 {
+    margin-bottom: 10px;
+}
+
+.coding-profile p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.coding-profile .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #a7c7cb;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+
+.coding-profile .btn:hover {
+    position:relative;
+    background: #a7c7cb;
+}
+
+
+footer {
+    background-color: hsl(180, 1%, 17%);
+    color:indianred;
+    padding: 20px 0;
+     text-align: center;
+     margin-top:20px;
+     }
+
+   .footer-content {
+      max-width: 1200px;
+       margin: 0 auto;
+          }
+          h3 {
+            color: #ffcc00; /* Yellow color for the heading */
+           }
+
+       .socials {
+         list-style: none;
+        padding: 0;
+        margin-top: 10px;
+       }
+      .socials li {
+        display: inline-block;
+        margin-right: 10px;
+     }
+
+    .socials a {
+       color: #fff;
+       text-decoration: none;
+        font-size: 20px;
+    }
+
+       /* Style the social icons */
+        .socials i {
+           transition: color 0.3s ease-in-out;
+         }
+
+       .socials i:hover {
+         color: #ffcc00; /* Yellow color on hover */
+        }
+    
+        #contact {
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+        
+        /* Option 2: Adding margin to the footer */
+        footer {
+            margin-top: 20px; /* Adjust as needed */
+        }
+        #about, #projects, #skills, #coding_profiles, #contact {
+            min-height: 200px;
+        }
+h1{
+    color:white;
+}
+
+
+
+
